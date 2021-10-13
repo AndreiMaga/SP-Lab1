@@ -45,8 +45,14 @@ namespace MyBook.Classes
             
             if(mAuthors.Count != 0)
             {
-                Console.WriteLine($"Authors : ");
-                mAuthors.ForEach(a => a.Print());
+                Console.Write($"Authors : ");
+                mAuthors.ForEach(a => {
+                    a.Print(); 
+                    if(mAuthors.Last() != a)
+                    {
+                        Console.Write(", ");
+                    }
+                });
                 Console.WriteLine();
             }
 

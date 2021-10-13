@@ -1,8 +1,6 @@
-﻿using MyBook.Classes.Printable;
-using MyBook.Interfaces;
+﻿using MyBook.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MyBook.Classes
 {

@@ -1,9 +1,7 @@
-﻿using MyBook.Classes.Printable;
-using MyBook.Interfaces;
+﻿using MyBook.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace MyBook.Classes
 {
@@ -42,13 +40,14 @@ namespace MyBook.Classes
         void IPrintable.Print()
         {
             Console.WriteLine($"Book Title : {mTitle}");
-            
-            if(mAuthors.Count != 0)
+
+            if (mAuthors.Count != 0)
             {
                 Console.Write($"Authors : ");
-                mAuthors.ForEach(a => {
-                    a.Print(); 
-                    if(mAuthors.Last() != a)
+                mAuthors.ForEach(a =>
+                {
+                    a.Print();
+                    if (mAuthors.Last() != a)
                     {
                         Console.Write(", ");
                     }

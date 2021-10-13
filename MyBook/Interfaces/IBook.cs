@@ -1,6 +1,4 @@
-﻿using MyBook.Classes;
-
-namespace MyBook.Interfaces
+﻿namespace MyBook.Interfaces
 {
     interface IBook : IPrintable
     {

@@ -1,6 +1,4 @@
-﻿using MyBook.Classes.Printable;
-
-namespace MyBook.Interfaces
+﻿namespace MyBook.Interfaces
 {
     public interface IChapter : IPrintable
     {

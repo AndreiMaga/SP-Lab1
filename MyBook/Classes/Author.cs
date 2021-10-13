@@ -11,11 +11,6 @@ namespace MyBook.Classes
             mName = name;
         }
 
-        public string GetName()
-        {
-            return mName;
-        }
-
         public void Print()
         {
             Console.Write($"{mName}");

@@ -21,9 +21,7 @@ namespace MyBook
             scOneOne.CreateNewParagraph("Paragraph 4");
             scOneOne.CreateNewTable("Table 1");
             scOneOne.CreateNewParagraph("Paragraph 5");
-            //scOneOne.Print();
-
-            discoTitanic.Print();
+            scOneOne.Print();
         }
     }
 }

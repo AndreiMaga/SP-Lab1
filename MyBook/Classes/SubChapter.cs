@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace MyBook.Classes
 {
-    class SubChapter : ISubChapter
+    public class SubChapter
     {
         readonly List<IPrintable> mPrintables;
         string mTitle;

@@ -3,7 +3,7 @@ using System;
 
 namespace MyBook.Classes
 {
-    internal class Author : IAuthor
+    internal class Author
     {
         private string mName;
         public Author(string name)

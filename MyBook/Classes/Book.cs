@@ -5,49 +5,50 @@ using System.Linq;
 
 namespace MyBook.Classes
 {
-    class Book : IBook
+    class Book
     {
-        readonly List<IChapter> mChapters;
-        readonly List<IAuthor> mAuthors;
+        readonly List<Chapter> mChapters;
+        readonly List<Author> mAuthors;
         string mTitle;
         public Book(string title)
         {
             mTitle = title;
-            mChapters = new List<IChapter>();
-            mAuthors = new List<IAuthor>();
+            mChapters = new List<Chapter>();
+            mAuthors = new List<Author>();
         }
 
-        public void AddAuthor(IAuthor author)
+        public void AddAuthor(Author author)
         {
             mAuthors.Add(author);
         }
 
         public int CreateChapter(string title)
         {
-            IChapter chapter = new Chapter(title);
+            Chapter chapter = new Chapter(title);
 
             mChapters.Add(chapter);
 
             return mChapters.IndexOf(chapter);
         }
 
-        public IChapter GetChapter(int indexChapterOne)
+        public Chapter GetChapter(int indexChapterOne)
         {
             return mChapters[indexChapterOne];
         }
 
 
-        void IPrintable.Print()
+        void Print()
         {
             Console.WriteLine($"Book Title : {mTitle}");
 
             if (mAuthors.Count != 0)
             {
                 Console.Write($"Authors : ");
+                Author last = mAuthors.Last();
                 mAuthors.ForEach(a =>
                 {
                     a.Print();
-                    if (mAuthors.Last() != a)
+                    if (last != a)
                     {
                         Console.Write(", ");
                     }

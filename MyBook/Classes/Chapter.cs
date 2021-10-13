@@ -4,28 +4,28 @@ using System.Collections.Generic;
 
 namespace MyBook.Classes
 {
-    public class Chapter : IChapter
+    public class Chapter
     {
         string mTitle;
 
-        readonly List<ISubChapter> mSubChapters;
+        readonly List<SubChapter> mSubChapters;
 
         public Chapter(string title)
         {
             mTitle = title;
-            mSubChapters = new List<ISubChapter>();
+            mSubChapters = new List<SubChapter>();
         }
 
         public int CreateSubChapter(string title)
         {
-            ISubChapter chapter = new SubChapter(title);
+            SubChapter chapter = new SubChapter(title);
 
             mSubChapters.Add(chapter);
 
             return mSubChapters.IndexOf(chapter);
         }
 
-        public ISubChapter GetSubChapter(int indexSubChapterOneOne)
+        public SubChapter GetSubChapter(int indexSubChapterOneOne)
         {
             return mSubChapters[indexSubChapterOneOne];
         }

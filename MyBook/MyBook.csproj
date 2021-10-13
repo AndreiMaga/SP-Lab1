@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2ED0B0D0-5532-4695-9FD7-89C6FBD99D87}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SP_Lab1</RootNamespace>
-    <AssemblyName>SP-Lab1</AssemblyName>
+    <RootNamespace>MyBook</RootNamespace>
+    <AssemblyName>MyBook</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,12 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Book.cs" />
-    <Compile Include="IPrintable.cs" />
-    <Compile Include="Paragraph.cs" />
+    <Compile Include="Classes\Author.cs" />
+    <Compile Include="Classes\Book.cs" />
+    <Compile Include="Classes\Chapter.cs" />
+    <Compile Include="Classes\Printable\Image.cs" />
+    <Compile Include="Classes\SubChapter.cs" />
+    <Compile Include="Interfaces\ISubChapter.cs" />
+    <Compile Include="Interfaces\IAuthor.cs" />
+    <Compile Include="Interfaces\IBook.cs" />
+    <Compile Include="Interfaces\IChapter.cs" />
+    <Compile Include="Interfaces\IPrintable.cs" />
+    <Compile Include="Classes\Printable\Paragraph.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Table.cs" />
+    <Compile Include="Classes\Printable\Table.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

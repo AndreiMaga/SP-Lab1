@@ -1,20 +1,22 @@
-﻿using System;
+﻿using MyBook.Classes.Printable;
+using MyBook.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyBook
+namespace MyBook.Classes
 {
-    class Book
+    class SubChapter : ISubChapter
     {
         readonly List<IPrintable> mPrintables;
-        string mTitle = "";
+        string mTitle;
 
-        public Book(string title)
+        public SubChapter(string title)
         {
-            mTitle = title;
             mPrintables = new List<IPrintable>();
+            mTitle = title;
         }
 
         public void CreateNewParagraph(string text)
@@ -37,16 +39,22 @@ namespace MyBook
             mPrintables.Add(table);
         }
 
-        public void print()
+        public void Print()
         {
-            StringBuilder sb = new StringBuilder();
-            foreach(var printable in mPrintables)
-            {
-                sb.Append(printable.Print());
-            }
+            Console.WriteLine($"SubChapter: {mTitle}");
 
-            Console.WriteLine(sb.ToString());
+            mPrintables.ForEach(printable => printable.Print());
+
         }
 
+        public void CreateNewImage(string image)
+        {
+            AddNewImage(image);
+        }
+
+        private void AddNewImage(string v)
+        {
+            mPrintables.Add(new Image(v));
+        }
     }
 }

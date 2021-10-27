@@ -8,10 +8,8 @@ namespace MyBook.Classes
     class Book : Section
     {
         readonly List<Author> mAuthors;
-        string mTitle;
         public Book(string title) : base(title)
         {
-            mTitle = title;
             mAuthors = new List<Author>();
             ShouldPrintTitle = false;
         }
@@ -23,7 +21,7 @@ namespace MyBook.Classes
 
         public override void Print()
         {
-            Console.WriteLine($"Book Title : {mTitle}\n");
+            Console.WriteLine($"Book Title : {Title}\n");
 
             if (mAuthors.Count != 0)
             {
@@ -42,6 +40,13 @@ namespace MyBook.Classes
             }
             base.Print();
             //mPrintables.ForEach(chapter => chapter.Print());
+        }
+
+        public override object Clone()
+        {
+            Book b = (Book)base.Clone();
+            mAuthors.ForEach(b.AddAuthor);
+            return b;
         }
     }
 }

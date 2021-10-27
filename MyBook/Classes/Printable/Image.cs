@@ -79,7 +79,7 @@ namespace MyBook.Classes.Printable
 			return sb.ToString();
 		}
 
-        public void Add(IPrintable printable)
+        public IPrintable Add(IPrintable printable)
         {
             throw new NotImplementedException();
         }
@@ -92,6 +92,11 @@ namespace MyBook.Classes.Printable
         public IPrintable Get(int index)
         {
             throw new NotImplementedException();
+        }
+
+        public object Clone()
+        {
+			return new Image(mImage);
         }
     }
 }

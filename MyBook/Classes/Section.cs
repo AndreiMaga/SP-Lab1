@@ -6,7 +6,7 @@ namespace MyBook.Classes
 {
     public class Section : IPrintable
     {
-        string mTitle;
+        public string Title { get; set; } = "Unknown";
 
         public bool ShouldPrintTitle { get; set; } = true;
 
@@ -14,7 +14,7 @@ namespace MyBook.Classes
 
         public Section(string title)
         {
-            mTitle = title;
+            Title = title;
             mPrintables = new List<IPrintable>();
         }
 
@@ -30,13 +30,15 @@ namespace MyBook.Classes
         public virtual void Print()
         {
             if(ShouldPrintTitle)
-                Console.WriteLine($"{mTitle}");
+                Console.WriteLine($"{Title}");
             mPrintables.ForEach(chapter => chapter.Print());
         }
 
-        public void Add(IPrintable printable)
+        public IPrintable Add(IPrintable printable)
         {
-            mPrintables.Add(printable);
+            IPrintable cloned = (IPrintable)printable.Clone();
+            mPrintables.Add(cloned);
+            return cloned;
         }
 
         public void Remove(IPrintable printable)
@@ -47,6 +49,13 @@ namespace MyBook.Classes
         public IPrintable Get(int index)
         {
             return mPrintables[index];
+        }
+
+        public virtual object Clone()
+        {
+            Section s = new Section(Title);
+            mPrintables.ForEach(b => s.Add(b));
+            return s;
         }
     }
 }

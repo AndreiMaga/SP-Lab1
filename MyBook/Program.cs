@@ -22,9 +22,22 @@ namespace MyBook
             cap11.Add(new Paragraph("Text from subchapter 1.1"));
             cap111 = (Section)cap11.Add(cap111); // cap111 = Clone
             cap111.Add(new Paragraph("Text from subchapter 1.1.1"));
+
+            Section cap112 = new Section("Capitolul 1.1.2");
+            cap112 = (Section)cap11.Add(cap112); // cap111 = Clone
+            cap112.Add(new Paragraph("Text from subchapter 1.1.2"));
+
             cap1111 = (Section)cap111.Add(cap1111); // cap1111 = Clone
             cap1111.Add(new Image("Image subchapter 1.1.1.1"));
-            noapteBuna.Print();
+
+            Section cap2 = new Section("Capitolul 2");
+            cap2 = (Section)noapteBuna.Add(cap2); // cap1 = Clone
+            TableOfContents toc = TableOfContents.FromSection(noapteBuna);
+
+            noapteBuna.AddTOC(toc);
+            
+            noapteBuna.Print(); 
+            
         }
     }
 }

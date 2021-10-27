@@ -8,6 +8,7 @@ namespace MyBook.Classes
     class Book : Section
     {
         readonly List<Author> mAuthors;
+        private TableOfContents mTOC;
         public Book(string title) : base(title)
         {
             mAuthors = new List<Author>();
@@ -17,6 +18,11 @@ namespace MyBook.Classes
         public void AddAuthor(Author author)
         {
             mAuthors.Add(author);
+        }
+
+        public void AddTOC(TableOfContents toc)
+        {
+            mTOC = toc;
         }
 
         public override void Print()
@@ -38,6 +44,10 @@ namespace MyBook.Classes
                 });
                 Console.WriteLine("\n");
             }
+
+            mTOC.Print();
+            Console.WriteLine();
+
             base.Print();
             //mPrintables.ForEach(chapter => chapter.Print());
         }

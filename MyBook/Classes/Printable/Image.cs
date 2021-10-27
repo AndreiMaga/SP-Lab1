@@ -20,7 +20,7 @@ namespace MyBook.Classes.Printable
         }
         public void Print()
         {
-			Console.WriteLine($"{mImage}");
+			Console.WriteLine($"Image with name : {mImage}");
 
 			if (File.Exists(mImage))
 			{
@@ -79,5 +79,19 @@ namespace MyBook.Classes.Printable
 			return sb.ToString();
 		}
 
-	}
+        public void Add(IPrintable printable)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Remove(IPrintable printable)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IPrintable Get(int index)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

@@ -5,16 +5,13 @@ using System.Linq;
 
 namespace MyBook.Classes
 {
-    class Book
+    class Book : Section
     {
-        readonly List<IPrintable> mPrintables;
         readonly List<Author> mAuthors;
-        string mTitle;
-        public Book(string title)
+        public Book(string title) : base(title)
         {
-            mTitle = title;
-            mPrintables = new List<IPrintable>();
             mAuthors = new List<Author>();
+            ShouldPrintTitle = false;
         }
 
         public void AddAuthor(Author author)
@@ -22,23 +19,9 @@ namespace MyBook.Classes
             mAuthors.Add(author);
         }
 
-        public int CreateChapter(string title)
+        public override void Print()
         {
-            Chapter chapter = new Chapter(title);
-
-            mPrintables.Add(chapter);
-
-            return mPrintables.IndexOf(chapter);
-        }
-
-        public void AddContent(IPrintable printable) 
-        {
-            mPrintables.Add(printable);
-        }
-
-        public void Print()
-        {
-            Console.WriteLine($"Book Title : {mTitle}\n");
+            Console.WriteLine($"Book Title : {Title}\n");
 
             if (mAuthors.Count != 0)
             {
@@ -55,9 +38,15 @@ namespace MyBook.Classes
                 });
                 Console.WriteLine("\n");
             }
-
-            mPrintables.ForEach(chapter => chapter.Print());
+            base.Print();
+            //mPrintables.ForEach(chapter => chapter.Print());
         }
 
+        public override object Clone()
+        {
+            Book b = (Book)base.Clone();
+            mAuthors.ForEach(b.AddAuthor);
+            return b;
+        }
     }
 }

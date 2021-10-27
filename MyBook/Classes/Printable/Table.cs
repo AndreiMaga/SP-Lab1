@@ -17,7 +17,7 @@ namespace MyBook.Classes.Printable
             Console.WriteLine(string.Join(".\n", mTable.Split(new string[] { ". " }, StringSplitOptions.None)));
         }
 
-        public void Add(IPrintable printable)
+        public IPrintable Add(IPrintable printable)
         {
             throw new NotImplementedException();
         }
@@ -30,6 +30,11 @@ namespace MyBook.Classes.Printable
         public void Remove(IPrintable printable)
         {
             throw new NotImplementedException();
+        }
+
+        public object Clone()
+        {
+            return new Table(mTable);
         }
     }
 }

@@ -12,9 +12,14 @@ namespace MyBook.Classes.Printable
             this.mText = mText;
         }
 
-        public void Add(IPrintable printable)
+        public IPrintable Add(IPrintable printable)
         {
             throw new NotImplementedException();
+        }
+
+        public object Clone()
+        {
+            return new Paragraph(mText);
         }
 
         public IPrintable Get(int index)

@@ -48,7 +48,6 @@
     <Compile Include="Classes\Book.cs" />
     <Compile Include="Classes\Chapter.cs" />
     <Compile Include="Classes\Printable\Image.cs" />
-    <Compile Include="Classes\SubChapter.cs" />
     <Compile Include="Interfaces\IPrintable.cs" />
     <Compile Include="Classes\Printable\Paragraph.cs" />
     <Compile Include="Program.cs" />

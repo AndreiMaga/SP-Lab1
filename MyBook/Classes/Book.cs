@@ -7,13 +7,13 @@ namespace MyBook.Classes
 {
     class Book
     {
-        readonly List<Chapter> mChapters;
+        readonly List<IPrintable> mPrintables;
         readonly List<Author> mAuthors;
         string mTitle;
         public Book(string title)
         {
             mTitle = title;
-            mChapters = new List<Chapter>();
+            mPrintables = new List<IPrintable>();
             mAuthors = new List<Author>();
         }
 
@@ -26,24 +26,24 @@ namespace MyBook.Classes
         {
             Chapter chapter = new Chapter(title);
 
-            mChapters.Add(chapter);
+            mPrintables.Add(chapter);
 
-            return mChapters.IndexOf(chapter);
+            return mPrintables.IndexOf(chapter);
         }
 
-        public Chapter GetChapter(int indexChapterOne)
+        public void AddContent(IPrintable printable) 
         {
-            return mChapters[indexChapterOne];
+            mPrintables.Add(printable);
         }
 
-
-        void Print()
+        public void Print()
         {
-            Console.WriteLine($"Book Title : {mTitle}");
+            Console.WriteLine($"Book Title : {mTitle}\n");
 
             if (mAuthors.Count != 0)
             {
-                Console.Write($"Authors : ");
+                
+                Console.Write(mAuthors.Count == 1 ? "Author : " : "Authors : ");
                 Author last = mAuthors.Last();
                 mAuthors.ForEach(a =>
                 {
@@ -53,10 +53,10 @@ namespace MyBook.Classes
                         Console.Write(", ");
                     }
                 });
-                Console.WriteLine();
+                Console.WriteLine("\n");
             }
 
-            mChapters.ForEach(chapter => chapter.Print());
+            mPrintables.ForEach(chapter => chapter.Print());
         }
 
     }

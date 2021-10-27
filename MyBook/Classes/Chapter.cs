@@ -4,36 +4,46 @@ using System.Collections.Generic;
 
 namespace MyBook.Classes
 {
-    public class Chapter
+    public class Chapter : IPrintable
     {
         string mTitle;
 
-        readonly List<SubChapter> mSubChapters;
+        readonly List<IPrintable> mPrintables;
 
         public Chapter(string title)
         {
             mTitle = title;
-            mSubChapters = new List<SubChapter>();
+            mPrintables = new List<IPrintable>();
         }
 
         public int CreateSubChapter(string title)
         {
-            SubChapter chapter = new SubChapter(title);
+            Chapter chapter = new Chapter(title);
 
-            mSubChapters.Add(chapter);
+            mPrintables.Add(chapter);
 
-            return mSubChapters.IndexOf(chapter);
-        }
-
-        public SubChapter GetSubChapter(int indexSubChapterOneOne)
-        {
-            return mSubChapters[indexSubChapterOneOne];
+            return mPrintables.IndexOf(chapter);
         }
 
         public void Print()
         {
-            Console.WriteLine($"Chapter:  {mTitle}");
-            mSubChapters.ForEach(chapter => chapter.Print());
+            Console.WriteLine($"{mTitle}");
+            mPrintables.ForEach(chapter => chapter.Print());
+        }
+
+        public void Add(IPrintable printable)
+        {
+            mPrintables.Add(printable);
+        }
+
+        public void Remove(IPrintable printable)
+        {
+            mPrintables.Remove(printable);
+        }
+
+        public IPrintable Get(int index)
+        {
+            return mPrintables[index];
         }
     }
 }

@@ -12,9 +12,24 @@ namespace MyBook.Classes.Printable
             this.mText = mText;
         }
 
+        public void Add(IPrintable printable)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IPrintable Get(int index)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Print()
         {
-            Console.WriteLine(mText + "\n\n");
+            Console.WriteLine("Paragraph: " + mText);
+        }
+
+        public void Remove(IPrintable printable)
+        {
+            throw new NotImplementedException();
         }
     }
 }

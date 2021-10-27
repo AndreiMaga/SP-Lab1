@@ -11,12 +11,12 @@ namespace MyBook
             Book noapteBuna = new Book("Noapte buna, copii!");
             Author rpGheo = new Author("Radu Pavel Gheo");
             noapteBuna.AddAuthor(rpGheo);
-            Chapter cap1 = new Chapter("Capitolul 1");
-            Chapter cap11 = new Chapter("Capitolul 1.1");
-            Chapter cap111 = new Chapter("Capitolul 1.1.1");
-            Chapter cap1111 = new Chapter("Subchapter 1.1.1.1");
-            noapteBuna.AddContent(new Paragraph("Multumesc celor care ..."));
-            noapteBuna.AddContent(cap1);
+            Section cap1 = new Section("Capitolul 1");
+            Section cap11 = new Section("Capitolul 1.1");
+            Section cap111 = new Section("Capitolul 1.1.1");
+            Section cap1111 = new Section("Subchapter 1.1.1.1");
+            noapteBuna.Add(new Paragraph("Multumesc celor care ..."));
+            noapteBuna.Add(cap1);
             cap1.Add(new Paragraph("Moto capitol"));
             cap1.Add(cap11);
             cap11.Add(new Paragraph("Text from subchapter 1.1"));

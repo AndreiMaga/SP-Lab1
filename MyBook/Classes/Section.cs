@@ -4,13 +4,15 @@ using System.Collections.Generic;
 
 namespace MyBook.Classes
 {
-    public class Chapter : IPrintable
+    public class Section : IPrintable
     {
         string mTitle;
 
+        public bool ShouldPrintTitle { get; set; } = true;
+
         readonly List<IPrintable> mPrintables;
 
-        public Chapter(string title)
+        public Section(string title)
         {
             mTitle = title;
             mPrintables = new List<IPrintable>();
@@ -18,16 +20,17 @@ namespace MyBook.Classes
 
         public int CreateSubChapter(string title)
         {
-            Chapter chapter = new Chapter(title);
+            Section chapter = new Section(title);
 
             mPrintables.Add(chapter);
 
             return mPrintables.IndexOf(chapter);
         }
 
-        public void Print()
+        public virtual void Print()
         {
-            Console.WriteLine($"{mTitle}");
+            if(ShouldPrintTitle)
+                Console.WriteLine($"{mTitle}");
             mPrintables.ForEach(chapter => chapter.Print());
         }
 

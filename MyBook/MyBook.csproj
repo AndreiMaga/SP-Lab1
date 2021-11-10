@@ -46,9 +46,11 @@
   <ItemGroup>
     <Compile Include="Classes\Author.cs" />
     <Compile Include="Classes\Book.cs" />
+    <Compile Include="Classes\ImageProxy.cs" />
     <Compile Include="Classes\Section.cs" />
     <Compile Include="Classes\Printable\Image.cs" />
     <Compile Include="Classes\TableOfContents.cs" />
+    <Compile Include="Interfaces\IPicture.cs" />
     <Compile Include="Interfaces\IPrintable.cs" />
     <Compile Include="Classes\Printable\Paragraph.cs" />
     <Compile Include="Program.cs" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyBook.Classes.Printable;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace MyBook.Interfaces
 {
     public interface IAlignStrategy
     {
-
+        void Render(string p);
     }
 }

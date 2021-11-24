@@ -9,6 +9,6 @@ namespace MyBook.Interfaces
 {
     public interface IAlignStrategy
     {
-        void Render(Paragraph p);
+        void Render(string p);
     }
 }

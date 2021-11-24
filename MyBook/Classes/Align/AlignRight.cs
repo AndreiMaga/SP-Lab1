@@ -10,9 +10,10 @@ namespace MyBook.Classes.Align
 {
     class AlignRight : IAlignStrategy
     {
-        public void Render(Paragraph p)
+        public void Render(string p)
         {
-            throw new NotImplementedException();
+            // in C# we can use String.Format to align right
+            Console.WriteLine(String.Format("##{0}", p));
         }
     }
 }

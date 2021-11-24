@@ -8,11 +8,17 @@ namespace MyBook.Classes.Printable
     {
         string mText;
 
-        IAlignStrategy alignStrategy = new AlignLeft();
+        public IAlignStrategy AlignStrategy { get; set; }
 
         public Paragraph(string mText)
         {
             this.mText = mText;
+        }
+
+        public Paragraph(string mText, IAlignStrategy strategy)
+        {
+            this.mText = mText;
+            AlignStrategy = strategy;
         }
 
         public IPrintable Add(IPrintable printable)
@@ -22,7 +28,7 @@ namespace MyBook.Classes.Printable
 
         public object Clone()
         {
-            return new Paragraph(mText);
+            return new Paragraph(mText, AlignStrategy);
         }
 
         public IPrintable Get(int index)
@@ -32,18 +38,19 @@ namespace MyBook.Classes.Printable
 
         public void Print()
         {
-            alignStrategy.Render(this);
-            Console.WriteLine("Paragraph: " + mText);
+            if(AlignStrategy != null)
+            {
+                AlignStrategy.Render(mText);
+            }
+            else
+            {
+                Console.WriteLine(mText);
+            }
         }
 
         public void Remove(IPrintable printable)
         {
             throw new NotImplementedException();
-        }
-
-        public void SetAlignStrategy(IAlignStrategy strategy)
-        {
-            alignStrategy = strategy;
         }
     }
 }

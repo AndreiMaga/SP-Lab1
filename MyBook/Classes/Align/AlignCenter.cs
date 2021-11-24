@@ -10,9 +10,9 @@ namespace MyBook.Classes.Align
 {
     class AlignCenter : IAlignStrategy
     {
-        public void Render(Paragraph p)
+        public void Render(string p)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(String.Format("##{0}##",p));
         }
     }
 }

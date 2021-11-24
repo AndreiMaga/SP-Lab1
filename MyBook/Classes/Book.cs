@@ -44,8 +44,10 @@ namespace MyBook.Classes
                 });
                 Console.WriteLine("\n");
             }
-
-            mTOC.Print();
+            if(mTOC != null)
+            {
+                mTOC.Print();
+            }
             Console.WriteLine();
 
             base.Print();

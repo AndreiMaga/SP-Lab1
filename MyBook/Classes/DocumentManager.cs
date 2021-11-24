@@ -11,7 +11,8 @@ namespace MyBook.Classes
 
         public Book Book { get; set; }
 
-        private static DocumentManager _instance;
+        private static object sync = new object();
+        private static volatile DocumentManager instance;
 
         private DocumentManager() { }
 
@@ -19,10 +20,15 @@ namespace MyBook.Classes
         {
             get
             {
-                if (_instance == null)
-                    _instance = new DocumentManager();
-
-                return _instance;
+                if (instance == null)
+                {
+                    lock (sync)
+                    {
+                        if (instance == null)
+                            instance = new DocumentManager();
+                    }
+                }
+                return instance;
             }
         }
     }

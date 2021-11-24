@@ -49,6 +49,7 @@
     <Compile Include="Classes\Align\AlignRight.cs" />
     <Compile Include="Classes\Author.cs" />
     <Compile Include="Classes\Book.cs" />
+    <Compile Include="Classes\DocumentManager.cs" />
     <Compile Include="Classes\ImageProxy.cs" />
     <Compile Include="Classes\Section.cs" />
     <Compile Include="Classes\Printable\Image.cs" />

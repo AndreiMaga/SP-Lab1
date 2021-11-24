@@ -1,4 +1,5 @@
-﻿using MyBook.Interfaces;
+﻿using MyBook.Classes.Printable;
+using MyBook.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,9 @@ namespace MyBook.Classes.Align
 {
     class AlignLeft : IAlignStrategy
     {
+        public void Render(Paragraph p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -32,6 +32,7 @@ namespace MyBook.Classes.Printable
 
         public void Print()
         {
+            alignStrategy.Render(this);
             Console.WriteLine("Paragraph: " + mText);
         }
 

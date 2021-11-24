@@ -8,10 +8,19 @@ namespace MyBook
 {
     class Program
     {
+        public static void Printing()
+        {
+            DocumentManager.Instance.Book.Print();
+        }
 
         static void Main(string[] args)
         {
+            Book myBook = new Book("My Book");
+            DocumentManager.Instance.Book = myBook;
+            Author me = new Author("My Self");
+            myBook.AddAuthor(me);
             Section cap1 = new Section("Capitolul 1");
+            myBook.Add(cap1);
             Paragraph p1 = new Paragraph("Paragraph 1");
             cap1.Add(p1);
             Paragraph p2 = new Paragraph("Paragraph 2");
@@ -31,6 +40,8 @@ namespace MyBook
             Console.WriteLine();
 
             cap1.Print();
+
+            Printing();
         }
     }
 }

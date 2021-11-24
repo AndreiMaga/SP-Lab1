@@ -23,7 +23,8 @@ namespace MyBook.Classes.Align
                         where t.IsClass && t.Namespace == "MyBook.Classes.Align"
                         select t;
             var type = types.ToList().Find(t => t.Name == Enum.GetName(typeof(AlignTypes), classes));
-            return (IAlignStrategy)Activator.CreateInstance(type);
+
+            return type == null ? null : (IAlignStrategy)Activator.CreateInstance(type);
         }
     }
 }

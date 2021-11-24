@@ -1,7 +1,6 @@
 ﻿using MyBook.Classes;
 using MyBook.Classes.Align;
 using MyBook.Classes.Printable;
-using MyBook.Interfaces;
 using System;
 
 namespace MyBook

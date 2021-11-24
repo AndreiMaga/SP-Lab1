@@ -53,6 +53,7 @@
     <Compile Include="Classes\Section.cs" />
     <Compile Include="Classes\Printable\Image.cs" />
     <Compile Include="Classes\TableOfContents.cs" />
+    <Compile Include="Extensions\MyExtensions.cs" />
     <Compile Include="Interfaces\IAlignStrategy.cs" />
     <Compile Include="Interfaces\IPicture.cs" />
     <Compile Include="Interfaces\IPrintable.cs" />

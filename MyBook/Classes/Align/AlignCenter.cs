@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyBook.Extensions;
 
 namespace MyBook.Classes.Align
 {
@@ -12,7 +13,7 @@ namespace MyBook.Classes.Align
     {
         public void Render(string p)
         {
-            Console.WriteLine(String.Format("##{0}##",p));
+            Console.WriteLine(string.Format("|{0}|", p.Center(80)));
         }
     }
 }

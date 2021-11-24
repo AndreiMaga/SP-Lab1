@@ -44,7 +44,7 @@ namespace MyBook.Classes.Printable
             }
             else
             {
-                Console.WriteLine(mText);
+                new AlignLeft().Render(mText);
             }
         }
 

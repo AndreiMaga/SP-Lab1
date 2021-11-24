@@ -12,7 +12,7 @@ namespace MyBook.Classes.Align
     {
         public void Render(string p)
         {
-            Console.WriteLine(String.Format("{0}##",p));
+            Console.WriteLine(String.Format("|{0,-80}|",p));
         }
     }
 }

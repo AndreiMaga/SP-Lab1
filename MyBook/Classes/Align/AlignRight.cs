@@ -13,7 +13,7 @@ namespace MyBook.Classes.Align
         public void Render(string p)
         {
             // in C# we can use String.Format to align right
-            Console.WriteLine(String.Format("##{0}", p));
+            Console.WriteLine(String.Format("|{0, 80}|", p));
         }
     }
 }

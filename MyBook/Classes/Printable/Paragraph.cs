@@ -38,14 +38,13 @@ namespace MyBook.Classes.Printable
 
         public void Print()
         {
-            if(AlignStrategy != null)
+            if(AlignStrategy == null)
             {
-                AlignStrategy.Render(mText);
+                AlignStrategy = new AlignLeft();
             }
-            else
-            {
-                new AlignLeft().Render(mText);
-            }
+
+            AlignStrategy.Render(mText);
+
         }
 
         public void Remove(IPrintable printable)

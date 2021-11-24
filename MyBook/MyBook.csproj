@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Align\AlignCenter.cs" />
+    <Compile Include="Classes\Align\AlignFactory.cs" />
     <Compile Include="Classes\Align\AlignLeft.cs" />
     <Compile Include="Classes\Align\AlignRight.cs" />
     <Compile Include="Classes\Author.cs" />

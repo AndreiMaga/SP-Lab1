@@ -22,7 +22,7 @@ namespace MyBook
             
             Paragraph p1 = new Paragraph("Paragraph 1")
             {
-                AlignStrategy = new AlignCenter()
+                AlignStrategy = AlignFactory.GetAlignStrategy(AlignTypes.AlignCenter)
             };
             cap1.Add(p1);
             Paragraph p2 = new Paragraph("Paragraph 2", new AlignRight());

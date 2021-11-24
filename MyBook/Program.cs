@@ -1,4 +1,5 @@
 ﻿using MyBook.Classes;
+using MyBook.Classes.Align;
 using MyBook.Classes.Printable;
 using MyBook.Interfaces;
 using System;
@@ -10,31 +11,26 @@ namespace MyBook
 
         static void Main(string[] args)
         {
-            long startTime = DateTime.Now.Millisecond;
-            ImageProxy img1 = new ImageProxy("Pamela Anderson");
-            ImageProxy img2 = new ImageProxy("Kim Kardashian");
-            ImageProxy img3 = new ImageProxy("Kirby Griffin");
-            Section playboyS1 = new Section("Front Cover");
-            playboyS1.Add(img1);
-            Section playboyS2 = new Section("Summer Girls");
-            playboyS2.Add(img2);
-            playboyS2.Add(img3);
-            Book playboy = new Book("Playboy");
-            playboy.Add(playboyS1);
-            playboy.Add(playboyS2);
-            long endTime = DateTime.Now.Millisecond;
-            Console.WriteLine("Creation of the content took " + (endTime -
-            startTime) + " milliseconds");
-            startTime = DateTime.Now.Millisecond;
-            playboyS1.Print();
-            endTime = DateTime.Now.Millisecond;
-            Console.WriteLine("Printing of the section 1 took " + (endTime -
-            startTime) + " milliseconds");
-            startTime = DateTime.Now.Millisecond;
-            playboyS1.Print();
-            endTime = DateTime.Now.Millisecond;
-            Console.WriteLine("Printing again the section 1 took " + (endTime -
-            startTime) + " milliseconds");
+            Section cap1 = new Section("Capitolul 1");
+            Paragraph p1 = new Paragraph("Paragraph 1");
+            cap1.Add(p1);
+            Paragraph p2 = new Paragraph("Paragraph 2");
+            cap1.Add(p2);
+            Paragraph p3 = new Paragraph("Paragraph 3");
+            cap1.Add(p3);
+            Paragraph p4 = new Paragraph("Paragraph 4");
+            cap1.Add(p4);
+            Console.WriteLine("Printing without Alignment");
+            Console.WriteLine();
+            cap1.Print();
+            p1.SetAlignStrategy(new AlignCenter());
+            p2.SetAlignStrategy(new AlignRight());
+            p3.SetAlignStrategy(new AlignLeft());
+            Console.WriteLine();
+            Console.WriteLine("Printing with Alignment");
+            Console.WriteLine();
+
+            cap1.Print();
         }
     }
 }

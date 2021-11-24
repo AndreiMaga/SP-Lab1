@@ -1,4 +1,5 @@
-﻿using MyBook.Interfaces;
+﻿using MyBook.Classes.Align;
+using MyBook.Interfaces;
 using System;
 
 namespace MyBook.Classes.Printable
@@ -6,6 +7,8 @@ namespace MyBook.Classes.Printable
     public class Paragraph : IPrintable
     {
         string mText;
+
+        IAlignStrategy alignStrategy = new AlignLeft();
 
         public Paragraph(string mText)
         {
@@ -35,6 +38,11 @@ namespace MyBook.Classes.Printable
         public void Remove(IPrintable printable)
         {
             throw new NotImplementedException();
+        }
+
+        public void SetAlignStrategy(IAlignStrategy strategy)
+        {
+            alignStrategy = strategy;
         }
     }
 }

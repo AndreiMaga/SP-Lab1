@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyBook.Classes
 {
-    class ImageProxy: IPrintable, IPicture
+    public class ImageProxy: IPrintable, IPicture
     {
         Image Image { get; set; }
         readonly string url;
@@ -49,6 +49,18 @@ namespace MyBook.Classes
         public IPrintable Add(IPrintable printable)
         {
             throw new NotImplementedException();
+        }
+
+        public void Accept(IVisitor visitor)
+        {
+            LoadImage();
+            ((IPrintable)Image).Accept(visitor);
+        }
+
+        public void Render()
+        {
+            LoadImage();
+            ((IPrintable)Image).Render();
         }
     }
 }

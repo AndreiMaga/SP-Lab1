@@ -51,5 +51,15 @@ namespace MyBook.Classes.Printable
         {
             throw new NotImplementedException();
         }
+
+        public void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
+        public void Render()
+        {
+            Print(); // Paragraph has no Childs
+        }
     }
 }

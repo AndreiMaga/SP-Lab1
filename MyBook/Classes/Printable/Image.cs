@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace MyBook.Classes.Printable
 {
-    class Image : IPrintable, IPicture
+    public class Image : IPrintable, IPicture
     {
         readonly string mImage;
 
@@ -99,6 +99,16 @@ namespace MyBook.Classes.Printable
         public object Clone()
         {
             return new Image(mImage);
+        }
+
+        public void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
+        public void Render()
+        {
+            Print(); // nothing different, Image has no "childs"
         }
     }
 }

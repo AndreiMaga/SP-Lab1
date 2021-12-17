@@ -1,13 +1,10 @@
 ﻿using MyBook.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyBook.Classes
 {
-    class TableOfContents : IPrintable
+    public class TableOfContents : IPrintable
     {
         int mDepth = 0;
         TableOfContents(int depth)
@@ -44,7 +41,7 @@ namespace MyBook.Classes
         {
             mPrintables.ForEach(printable =>
             {
-                if(printable.GetType() == typeof(Section))
+                if (printable.GetType() == typeof(Section))
                 {
                     Section s = (Section)printable;
                     printDots();
@@ -53,7 +50,7 @@ namespace MyBook.Classes
                 else
                 {
                     TableOfContents toc = (TableOfContents)printable;
-                    if(toc.mPrintables.Count != 0)
+                    if (toc.mPrintables.Count != 0)
                     {
                         toc.Print();
                     }
@@ -84,6 +81,16 @@ namespace MyBook.Classes
 
 
             return toc;
+        }
+
+        public void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
+        public void Render()
+        {
+            Print(); // this will print the whole ToC
         }
     }
 }

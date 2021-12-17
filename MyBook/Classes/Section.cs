@@ -18,10 +18,15 @@ namespace MyBook.Classes
             Printables = new List<IPrintable>();
         }
 
+        private void PrintTitle()
+        {
+            if (ShouldPrintTitle)
+                Console.WriteLine($"{Title}");
+        }
+
         public virtual void Print()
         {
-            if(ShouldPrintTitle)
-                Console.WriteLine($"{Title}");
+            PrintTitle();
             Printables.ForEach(chapter => chapter.Print());
         }
 
@@ -47,6 +52,16 @@ namespace MyBook.Classes
             Section s = new Section(Title);
             Printables.ForEach(b => s.Add(b));
             return s;
+        }
+
+        public virtual void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
+        public virtual void Render()
+        {
+            PrintTitle();
         }
     }
 }

@@ -55,11 +55,15 @@
     <Compile Include="Classes\Section.cs" />
     <Compile Include="Classes\Printable\Image.cs" />
     <Compile Include="Classes\TableOfContents.cs" />
+    <Compile Include="Classes\Visitor\BaseVisitor.cs" />
+    <Compile Include="Classes\Visitor\BookStatistics.cs" />
+    <Compile Include="Classes\Visitor\RenderContentVisitor.cs" />
     <Compile Include="Extensions\MyExtensions.cs" />
     <Compile Include="Interfaces\IAlignStrategy.cs" />
     <Compile Include="Interfaces\IPicture.cs" />
     <Compile Include="Interfaces\IPrintable.cs" />
     <Compile Include="Classes\Printable\Paragraph.cs" />
+    <Compile Include="Interfaces\IVisitor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\Printable\Table.cs" />
@@ -67,5 +71,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

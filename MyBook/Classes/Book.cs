@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace MyBook.Classes
 {
-    class Book : Section
+    public class Book : Section
     {
         readonly List<Author> mAuthors;
         private TableOfContents mTOC;
@@ -27,11 +27,19 @@ namespace MyBook.Classes
 
         public override void Print()
         {
+            RenderAuthors();
+
+            base.Print();
+            //mPrintables.ForEach(chapter => chapter.Print());
+        }
+
+        private void RenderAuthors()
+        {
             Console.WriteLine($"Book Title : {Title}\n");
 
             if (mAuthors.Count != 0)
             {
-                
+
                 Console.Write(mAuthors.Count == 1 ? "Author : " : "Authors : ");
                 Author last = mAuthors.Last();
                 mAuthors.ForEach(a =>
@@ -44,14 +52,11 @@ namespace MyBook.Classes
                 });
                 Console.WriteLine("\n");
             }
-            if(mTOC != null)
+            if (mTOC != null)
             {
                 mTOC.Print();
             }
             Console.WriteLine();
-
-            base.Print();
-            //mPrintables.ForEach(chapter => chapter.Print());
         }
 
         public override object Clone()
@@ -59,6 +64,18 @@ namespace MyBook.Classes
             Book b = (Book)base.Clone();
             mAuthors.ForEach(b.AddAuthor);
             return b;
+        }
+
+        public override void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
+        public override void Render()
+        {
+            RenderAuthors();
+
+            base.Render();
         }
     }
 }

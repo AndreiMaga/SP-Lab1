@@ -36,5 +36,15 @@ namespace MyBook.Classes.Printable
         {
             return new Table(mTable);
         }
+
+        public void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
+        public void Render()
+        {
+            Print(); // Table has no childs
+        }
     }
 }

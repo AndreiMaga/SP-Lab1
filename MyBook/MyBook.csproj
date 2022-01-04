@@ -58,6 +58,7 @@
     <Compile Include="Classes\Visitor\BaseVisitor.cs" />
     <Compile Include="Classes\Visitor\BookStatistics.cs" />
     <Compile Include="Classes\Visitor\RenderContentVisitor.cs" />
+    <Compile Include="Classes\Visitor\ToCVisitor.cs" />
     <Compile Include="Extensions\MyExtensions.cs" />
     <Compile Include="Interfaces\IAlignStrategy.cs" />
     <Compile Include="Interfaces\IPicture.cs" />

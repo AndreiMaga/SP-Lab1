@@ -23,10 +23,19 @@ namespace MyBook
             cap1.Add(new Image("ImageTwo"));
             cap1.Add(new Paragraph("Some text"));
             cap1.Add(new Table("Table 1"));
+            Section cap11 = new Section("Capitolul 11");
+            Section cap111 = new Section("Capitolul 111");
+            cap11.Add(cap111);
+            Section cap12 = new Section("Capitolul 12");
+            cap1.Add(cap11);
+            cap1.Add(cap12);
+
             BookStatistics stats = new BookStatistics();
             cap1.Accept(stats);
             stats.PrintStatistics();
-
+            ToCVisitor visitor = new ToCVisitor();
+            cap1.Accept(visitor);
+            visitor.PrintToC();
 
         }
     }

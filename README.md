@@ -18,4 +18,6 @@ https://github.com/AndreiMaga/SP-Lab1/tree/9100e54fcd1ac2aa2976181979609d15d7797
 
 try to create a visitor to generate ToC 
 
+[Andrei] - Added ToCVisitor to solve this, see #10
+
 # Proposed grade: 10

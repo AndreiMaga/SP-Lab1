@@ -12,3 +12,10 @@ all good
 https://github.com/AndreiMaga/SP-Lab1/tree/409281693da178b2e6685e73db9ee44f5fcb7586
 
 all good
+
+# Feedback lab6:
+https://github.com/AndreiMaga/SP-Lab1/tree/9100e54fcd1ac2aa2976181979609d15d7797c2e
+
+try to create a visitor to generate ToC 
+
+# Proposed grade: 10
